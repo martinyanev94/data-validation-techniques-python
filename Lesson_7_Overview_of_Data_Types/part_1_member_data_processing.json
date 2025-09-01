@@ -1,0 +1,33 @@
+{
+    "members": [
+        {
+            "first": "Paul",
+            "last": "McCartney",
+            "birth": 1942
+        },
+        {
+            "first": "John",
+            "last": "Lennon",
+            "birth": 1940
+        }
+    ]
+}
+import pandas as pd
+import json
+
+# Presuming we have our JSON data stored in a string
+json_data = '''
+{
+    "members": [
+        {"first": "Paul", "last": "McCartney", "birth": 1942},
+        {"first": "John", "last": "Lennon", "birth": 1940}
+    ]
+}
+'''
+
+# Load JSON data into a Pandas DataFrame
+data = json.loads(json_data)
+df = pd.json_normalize(data, 'members')
+print(df)
+0   Paul  McCartney   1942
+1   John      Lennon   1940
