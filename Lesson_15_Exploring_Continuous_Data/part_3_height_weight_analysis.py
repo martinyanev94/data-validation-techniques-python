@@ -1,0 +1,8 @@
+correlation = df['Height'].corr(df['Weight'])
+print(f"Correlation between Height and Weight: {correlation}")
+plt.hist(df['Height'], bins=5, color='orange', edgecolor='black')
+plt.title('Height Distribution Histogram')
+plt.xlabel('Height (cm)')
+plt.ylabel('Frequency')
+plt.grid(axis='y')
+plt.show()
