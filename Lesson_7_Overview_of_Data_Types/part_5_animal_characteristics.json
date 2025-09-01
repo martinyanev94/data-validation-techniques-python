@@ -1,0 +1,24 @@
+{
+    "records": [
+        {"name": "human", "characteristics": {"num_leg": 2, "num_eyes": 2}},
+        {"name": "dog", "characteristics": {"num_leg": 4, "num_eyes": 2}}
+    ],
+    "pagination": {
+        "next": "next_page_token",
+        "has_more": true
+    }
+}
+# Assuming we have a dictionary called `data`
+data = {
+    "records": [
+        {"name": "human", "characteristics": {"num_leg": 2, "num_eyes": 2}},
+        {"name": "dog", "characteristics": {"num_leg": 4, "num_eyes": 2}}
+    ],
+    "pagination": {"next": "next_page_token", "has_more": True}
+}
+
+# Normalize the JSON data
+df_records = pd.json_normalize(data, record_path='records')
+print(df_records)
+0  human                        2                         2
+1    dog                        4                         2
